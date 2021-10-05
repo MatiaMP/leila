@@ -1,0 +1,43 @@
+{
+    "Entrées": [
+        {
+            "nom": "Escargots à la crème d’ail",
+            "desc": null,
+            "portion": 1,
+            "prix": 31,
+        }
+        {
+            "nom": "Foie gras de canard poêlé aux coings",
+            "desc": "gâteau et infusion de coing à la verveine",
+            "portion": 2,
+            "prix": 34,
+        }
+        {
+            "nom": "Jardin de champignons d’automne",
+            "desc": "crème de cèpes, émulsion au thé noir",
+            "portion": 1,
+            "prix": 33,
+        }
+    ],
+    "Poissons": [
+        {
+            "nom": "Sandre à la peau croustillante",
+            "desc": "fondue d’échalotes, sauce au vin rouge",
+            "portion": 1,
+            "prix": 42,
+        }
+        {
+            "nom": "Saint-pierre rôti aux olives taggiasche",
+            "desc": "mousseline d’artichaut, fumet de poisson au citron kalamansi",
+            "portion": 1,
+            "prix": 49,
+        }
+        {
+            "nom": "Bar cuit à la vapeur et criste marine",
+            "desc": "déclinaison de riz et coquillages, jus au curcuma",
+            "portion": 2,
+            "prix": 58,
+        }
+    ]
+
+  } 

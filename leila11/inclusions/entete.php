@@ -1,14 +1,17 @@
 <?php
+  // 
+
   // Langues disponibles
   $languesDisponibles = [];
+  $nomsDesLangues = [];
   $contenuDossierTextes = scandir('textes');
   foreach($contenuDossierTextes as $nomDossier) {
-    if($nomDossier != '.' && '..'){
-      $languesDisponibles[] = $nomDossier;
+    if($nomDossier != '.' && $nomDossier != '..') {
+      $codeEtNomLangue = explode('-', $nomDossier);
+      $languesDisponibles[] = $codeEtNomLangue[0];
+      $nomsDesLangues[$codeEtNomLangue[0]] = $codeEtNomLangue[1];
     }
   }
-
-  //print_r($languesDisponibles);
 
   // i18n
   // A - Déterminer la langue par défaut
@@ -17,12 +20,12 @@
   // B - Vérifier si l'utilisateur a déjà fait un choix de langue auparavant.
   // Si tel est le cas, le tableau $_CCOKIE contiendra un témoin HTTP nommé 
   // 'leila_langue' (voir le code de l'étape C plus loin)
-  if(isset($_COOKIE['leila_langue'])) {
+  if(isset($_COOKIE['leila_langue']) && in_array($_COOKIE['leila_langue'], $languesDisponibles)) {
     $langueChoisie = $_COOKIE['leila_langue'];
   }
 
   // C - Si l'utilisateur choisi une langue en cliquant un lien dans la navigation en haut de la page
-  if(isset($_GET['langue'] && in_array($_GET['langue'], $languesDisponibles)) {
+  if(isset($_GET['langue']) && in_array($_GET['langue'], $languesDisponibles)) {
     $langueChoisie = $_GET['langue'];
     
     // C2 - Retenir le choix de langue de l'utilisateur dans un témoin HTTP (cookie)
@@ -30,8 +33,37 @@
   }
 
   // D - On est enfin prêt à charger le fichier contenant les textes dans langue choisie
-  include('textes/' . $langueChoisie . '/i18n.txt.php');
+  include('textes/' . $langueChoisie . '-' . $nomsDesLangues[$langueChoisie] . '/i18n.txt.php');
+
+  // Gérer le choix d'une citation aléatoire.
+  
+  /**
+   * !!!!!!! À déplacer car fonctionne pas dans les autres pages que Menu et Vins
+   * 
+   */
+
+  // Idéalement j'aimerai avoir une variable comme celle-là :
+  /*
+  $citation = [
+    "texte"   =>  "Le texte de la citation",
+    "auteur"  =>  "Monsieur Untel"
+  ];
+  */
+  // Étape 1 : Accéder au fichier
+  // Remarquez l'interpolation de la variable $page à l'intérieur de la chaîne de caractères
+  $citationsChaine = file_get_contents("data/citations-$page.json"); 
+  // echo $citationsChaine;
+  
+  // Étape 2 : Interpréter ("parser", ou analyser syntaxiquement) le code JSON dans $citationsChaine
+  $citationsTab = json_decode($citationsChaine, true);
+  // Afficher le tableau complet pour déboguage :
+  //print_r($citationsTab);
+  // Afficher uniquement le tableau des citations dans la langue choisie sur le site
+  print_r($citationsTab[$langueChoisie]);
+
+
 ?>
+<!-- Entête commune -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,10 +99,9 @@
           }
         ?>
         <nav class="i18n">
-          <?php foreach($languesDisponibles as $codeLangue) { ?>
-          <a href="?langue=<?= $codeLangue; ?>" class="" title="Français"><?= $codeLangue; ?></a>
+          <?php foreach($languesDisponibles as $codeLangue) {  ?>
+            <a href="?langue=<?= $codeLangue; ?>" class="<?php if($langueChoisie == $codeLangue) {echo 'actif';} ?>" title="<?= $nomsDesLangues[$codeLangue]; ?>"><?= $codeLangue; ?></a>
           <?php } ?>
-          
         </nav>
       </div>
       <div class="titre-page">

@@ -1,0 +1,22 @@
+{
+    "fr": [
+        {
+            "texte": "Le vin est innocent, l'ivrogne seul est coupable.",
+            "auteur": "Proverbe Russe"
+        },
+        {
+            "texte": "L’homme doit au vin d’être le seul animal à boire sans soif.",
+            "auteur": "Pline l'Ancien"
+        }
+    ],
+    "en": [
+        {
+            "texte": "Either give me more wine or leave me alone.",
+            "auteur": "Rumi"
+        },
+        {
+            "texte": "The wine in the bottle does not quench thirst.",
+            "auteur": "George Herbert"
+        }
+    ]
+}

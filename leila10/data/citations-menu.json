@@ -1,0 +1,46 @@
+{
+    "fr": [
+        {
+            "texte": "L'homme est bon, mais le veau est meilleur.",
+            "auteur": "Bertold Brecht"
+        },
+        {
+            "texte": "Chaque repas que l'on fait est un repas de moins à faire.",
+            "auteur": "Vladimir Jankélévitch"
+        },
+        {
+            "texte": "La gourmandise commence quand on n'a plus faim.",
+            "auteur": "Alphonse Daudet"
+        }
+    ],
+
+    "it": [
+        {
+            "texte": "Nella botte piccola, c’è il vino buono.",
+            "auteur": "Fellini"
+        }
+    ],
+
+    "en": [
+        {
+            "texte": "There is no love sincerer than the love of food.",
+            "auteur": "George Bernard Shaw"
+        },
+        {
+            "texte": "The only time to eat diet food is while you're waiting for the steak to cook.",
+            "auteur": "Julia Child"
+        },
+        {
+            "texte": "One cannot think well, love well, sleep well, if one has not dined well.",
+            "auteur": "Virginia Woolf"
+        },
+        {
+            "texte": "Everything you see I owe to spaghetti.",
+            "auteur": "Sophia Loren"
+        },
+        {
+            "texte": "After a good dinner one can forgive anybody, even one's own relations.",
+            "auteur": "Oscar Wilde"
+        }
+    ]
+}
